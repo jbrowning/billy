@@ -17,11 +17,11 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'capybara'
   gem 'rspec-rails', "~> 2.0"
 end
 
 group :test do
-  gem 'capybara'
   gem 'factory_girl_rails', "~> 4.0"
 end
 
