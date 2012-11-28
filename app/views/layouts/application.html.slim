@@ -1,0 +1,22 @@
+doctype 5
+html
+  head
+    title Billy
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    .container
+      .navbar.navbar-inverse
+        .navbar-inner
+          .container
+            = link_to "Billy", root_path, :class => 'brand'
+      header
+        - if title
+          h1= title
+      - flash.each do |name, msg|
+        div class="alert alert-#{name == :notice ? 'success' : 'error'}"
+          button type="button" class="close" data-dismiss="alert" ×
+          = msg
+      
+      = yield
