@@ -1,8 +1,9 @@
 # Ignore bundler config
 /.bundle
 
-# Development Database
+# Development & Test Databases
 /db/development.sqlite3
+/db/test.sqlite3
 
 # Ignore the database config 
 /config/database.yml

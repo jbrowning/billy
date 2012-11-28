@@ -29,5 +29,7 @@ group :development do
   gem 'annotate'
   gem 'thin'
   gem 'guard-rspec'
+  gem 'rb-fsevent'
+  gem 'terminal-notifier-guard'
 end
 
