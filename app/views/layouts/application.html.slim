@@ -9,8 +9,13 @@ html
     .container
       .navbar.navbar-inverse
         .navbar-inner
+          
           .container
             = link_to "Billy", root_path, :class => 'brand'
+            = render '/layouts/nav'
+
+            
+            .nav
       header
         - if title
           h1= title
