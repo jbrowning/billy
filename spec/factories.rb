@@ -5,4 +5,10 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
   end
+
+  factory :billing_period do
+    user
+    begin_date 1
+    end_date -1
+  end
 end

@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(:version => 20130126035858) do
 
   create_table "billing_periods", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "begin_date"
-    t.integer  "end_date"
+    t.integer  "user_id",    :null => false
+    t.integer  "begin_date", :null => false
+    t.integer  "end_date",   :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
