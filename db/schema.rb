@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126010243) do
+ActiveRecord::Schema.define(:version => 20130126035858) do
+
+  create_table "billing_periods", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "begin_date"
+    t.integer  "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
