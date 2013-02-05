@@ -1,6 +1,6 @@
 module ApplicationHelper
 
   def title(title=nil)
-    @title ||= title || "Bill Manager"
+    @title ||= "Billy - " + (title || "Bill Manager")
   end
 end
