@@ -1,11 +1,12 @@
 doctype 5
 html
   head
-    title Billy
-    = stylesheet_link_tag "application", :media => "all"
+    title = "Billy - #{title}"
+    = stylesheet_link_tag "solo", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
     .container
-      = yield
+      .content.span6.offset3
+        = yield
   
