@@ -1,5 +1,5 @@
 Billy::Application.routes.draw do
-  get "pages/home"
+  resources :billing_periods
 
   devise_for :users
   root :to => 'pages#home'
