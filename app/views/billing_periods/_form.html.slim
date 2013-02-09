@@ -1,0 +1,10 @@
+= form_for @new_bp, html: { class: 'form-horizontal' } do |f|
+  .modal-body
+    .control-group
+      = f.label :begin_date, class: 'control-label'
+      .controls
+        = f.select :begin_date, day_of_month_options
+    .control-group
+      = f.label :end_date, class: 'control-label'
+      .controls
+        = f.select :end_date, day_of_month_options(-1)

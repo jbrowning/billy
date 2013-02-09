@@ -7,12 +7,12 @@
         tr
           th Begin date
           th End date
-          th
       tbody
         - @billing_periods.each do |bp|
           tr data-id="#{bp.id}"
             td= bp.begin_date
             td= bp.end_date
-            td Actions here
   .span3
-    button.btn.btn-primary.btn-large Create Billing Period
+    button.btn.btn-primary.btn-large data-toggle="modal" data-target="#bp_form_modal" Create Billing Period
+
+= render 'bp_form_modal', modal_title: "Create Billing Period"
