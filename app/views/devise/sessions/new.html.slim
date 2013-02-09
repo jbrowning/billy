@@ -1,5 +1,10 @@
 h2 Please Sign In
 
+- flash.each do |name, msg|
+  div class="span3 offset1 alert alert-#{name == :notice ? 'success' : 'error'}"
+    button type="button" class="close" data-dismiss="alert" ×
+    = msg
+
 = form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { :class => 'form-horizontal'} ) do |f|
   .control-group 
     = f.label :email, nil, class: 'control-label'
@@ -8,7 +13,7 @@ h2 Please Sign In
   .control-group
     = f.label :password, nil, class: 'control-label'
     .controls
-      = f.email_field :password
+      = f.password_field :password
   - if devise_mapping.rememberable?
     .control-group
       .controls
