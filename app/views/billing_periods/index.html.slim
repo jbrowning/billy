@@ -1,2 +1,18 @@
-h1 BillingPeriods#index
-p Find me in app/views/billing_periods/index.html.slim
+- title "Billing Periods"
+
+.row
+  .span9
+    table#billing_periods.table.span3
+      thead
+        tr
+          th Begin date
+          th End date
+          th
+      tbody
+        - @billing_periods.each do |bp|
+          tr data-id="#{bp.id}"
+            td= bp.begin_date
+            td= bp.end_date
+            td Actions here
+  .span3
+    button.btn.btn-primary.btn-large Create Billing Period

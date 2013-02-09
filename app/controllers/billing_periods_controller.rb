@@ -1,5 +1,8 @@
 class BillingPeriodsController < ApplicationController
+  before_filter :fetch_billing_periods
+
   def index
+
   end
 
   def new
@@ -13,4 +16,11 @@ class BillingPeriodsController < ApplicationController
 
   def destroy
   end
+
+
+private
+  def fetch_billing_periods
+    @billing_periods = current_user.billing_periods
+  end
+
 end
