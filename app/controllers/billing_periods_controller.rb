@@ -2,13 +2,7 @@ class BillingPeriodsController < ApplicationController
   before_filter :fetch_billing_periods
 
   def index
-
-  end
-
-  def new
-  end
-
-  def edit
+    @new_bp = BillingPeriod.new
   end
 
   def create
