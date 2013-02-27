@@ -2,7 +2,7 @@ class BillingPeriodsController < ApplicationController
   before_filter :fetch_billing_periods
 
   def index
-    @new_bp = BillingPeriod.new
+    @billing_period = BillingPeriod.new
   end
 
   def create
