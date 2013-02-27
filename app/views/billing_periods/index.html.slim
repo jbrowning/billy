@@ -1,18 +1,22 @@
 - title "Billing Periods"
 
 .row
-  .span9
+  .span8
     table#billing_periods.table.span3
       thead
         tr
           th Begin date
           th End date
+          th
       tbody
         - @billing_periods.each do |bp|
-          tr data-id="#{bp.id}"
+          tr.billing-period data-id="#{bp.id}"
             td= bp.begin_date
             td= bp.end_date
-  .span3
+            td.btn-toolbar
+              button.btn.edit-billing-period Edit
+              = link_to "Delete", billing_period_path(bp), :class => "btn btn-danger destroy-billing-period", method: :delete, confirm: "Are you sure you want to delete this billing period?" 
+  .span3.offset1
     button.btn.btn-primary.btn-large data-toggle="modal" data-target="#bp_form_modal" Create Billing Period
 
 = render 'bp_form_modal', modal_title: "Create Billing Period"
