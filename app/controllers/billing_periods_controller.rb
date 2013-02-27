@@ -6,6 +6,14 @@ class BillingPeriodsController < ApplicationController
   end
 
   def create
+    @billing_period = current_user.billing_periods.build(params[:billing_period])
+
+    if @billing_period.save
+      redirect_to billing_periods_path
+    else
+      flash[:error] = @billing_period.errors.map(&:message).join(', ')
+      render :index
+    end
   end
 
   def destroy
