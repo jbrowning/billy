@@ -17,6 +17,14 @@ class BillingPeriodsController < ApplicationController
   end
 
   def destroy
+    billing_period = BillingPeriod.find(params[:id])
+    if billing_period.destroy
+      flash[:notice] = "billing period deleted"
+    else
+      flash[:error] = "there was a problem deleting the billing period"
+    end
+
+    redirect_to index
   end
 
 
