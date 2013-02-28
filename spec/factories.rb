@@ -17,4 +17,10 @@ FactoryGirl.define do
     billing_period
     sequence(:name) {|n| "Bill #{n}" }
   end
+
+  factory :bill do
+    user
+    sequence(:name) {|n| "Bill #{n}" }
+    amount_cents { rand(100) * 100 }
+  end
 end

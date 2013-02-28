@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228015820) do
+ActiveRecord::Schema.define(:version => 20130228022543) do
 
   create_table "billing_periods", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(:version => 20130228015820) do
     t.integer  "due_day"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "bills", :force => true do |t|
+    t.integer  "user_id",                         :null => false
+    t.string   "name",                            :null => false
+    t.integer  "amount_cents", :default => 0,     :null => false
+    t.date     "date_due"
+    t.date     "date_paid"
+    t.boolean  "settled",      :default => false, :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "users", :force => true do |t|
