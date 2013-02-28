@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130228015820) do
   end
 
   create_table "billing_schedules", :force => true do |t|
+    t.integer  "user_id",           :null => false
     t.string   "name",              :null => false
     t.integer  "billing_period_id", :null => false
     t.integer  "amount_cents"

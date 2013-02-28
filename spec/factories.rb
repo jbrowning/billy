@@ -13,6 +13,7 @@ FactoryGirl.define do
   end
 
   factory :billing_schedule do
+    user
     billing_period
     sequence(:name) {|n| "Bill #{n}" }
   end

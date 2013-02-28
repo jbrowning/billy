@@ -1,4 +1,5 @@
 class BillingSchedule < ActiveRecord::Base
+  belongs_to :user
   belongs_to :billing_period
 
   validates :name, :billing_period, presence: true
