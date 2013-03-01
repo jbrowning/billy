@@ -15,9 +15,9 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   devise :database_authenticatable, :recoverable, :rememberable, :registerable
 
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   has_many :billing_periods
-  
+  monetize :balance_cents
 end
