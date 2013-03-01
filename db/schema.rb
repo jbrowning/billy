@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228022543) do
+ActiveRecord::Schema.define(:version => 20130301033816) do
 
   create_table "billing_periods", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20130228022543) do
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "name",                                   :null => false
-    t.integer  "balance",                :default => 0,  :null => false
+    t.integer  "balance_cents",          :default => 0,  :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
