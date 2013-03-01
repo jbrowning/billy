@@ -5,4 +5,7 @@ class Bill < ActiveRecord::Base
   
   attr_accessible :amount_cents, :date_due, :date_paid, :name, :settled
 
+  def self.settled
+    where(settled: true)
+  end
 end

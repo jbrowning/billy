@@ -22,5 +22,13 @@ FactoryGirl.define do
     user
     sequence(:name) {|n| "Bill #{n}" }
     amount_cents { rand(100) * 100 }
+
+    trait :settled do
+      settled true
+    end
+
+    trait :unsettled do
+      settled false
+    end
   end
 end

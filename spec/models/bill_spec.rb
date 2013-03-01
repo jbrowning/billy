@@ -21,4 +21,13 @@ describe Bill do
     bill.amount_cents = nil
     bill.should_not be_valid
   end
+
+  describe '.settled' do
+    let(:user) { create :user }
+    let!(:settled_bill) { create :bill, :settled, user: user }
+    let!(:unsettled_bill) { create :bill, :unsettled, user: user }
+    it 'includes the settled records' do
+      user.bills.settled =~ [settled_bill]
+    end
+  end
 end
