@@ -8,4 +8,8 @@ class Bill < ActiveRecord::Base
   def self.settled
     where(settled: true)
   end
+
+  def self.unsettled
+    where(settled: false)
+  end
 end
