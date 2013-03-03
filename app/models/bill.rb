@@ -3,7 +3,8 @@ class Bill < ActiveRecord::Base
 
   validates :name, :amount_cents, presence: true
   
-  attr_accessible :amount_cents, :date_due, :date_paid, :name, :settled
+  attr_accessible :amount, :date_due, :date_paid, :name, :settled
+  monetize :amount_cents
 
   def self.settled
     where(settled: true)
@@ -11,5 +12,9 @@ class Bill < ActiveRecord::Base
 
   def self.unsettled
     where(settled: false)
+  end
+
+  def paid?
+    date_paid.present?
   end
 end

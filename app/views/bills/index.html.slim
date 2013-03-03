@@ -1,0 +1,27 @@
+- title "Bills"
+
+.row
+  .span9
+    - if @bills
+      table#billing_periods.table.span4
+        thead
+          tr
+            th Name
+            th Due Date 
+            th Paid Date
+            th Amount
+            th
+        tbody
+          - @bills.each do |bill|
+            tr.billing-period data-id="#{bill.id}"
+              td= bill.name
+              td= bill.date_due
+              td= bill.date_paid
+              td= bill.amount
+              td.btn-toolbar
+                = link_to "Pay!", pay_bill_path(bill), class: 'btn btn-success', method: :put
+                = link_to "Settle!", settle_bill_path(bill), class: 'btn btn-primary'
+                = link_to "Edit", edit_bill_path(bill), class: 'btn'
+                = link_to "Delete", bill_path(bill), :class => "btn btn-danger destroy-billing-period", method: :delete, confirm: "Are you sure you want to delete this bill?" 
+  .span3
+    = link_to "Create Bill", new_bill_path, class: "button btn btn-primary btn-large pull-right"

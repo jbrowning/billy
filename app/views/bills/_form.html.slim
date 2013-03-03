@@ -1,0 +1,17 @@
+= form_for @bill, html: { class: 'form-horizontal' } do |f|
+  .control-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :date_due, 'Due date', class: 'control-label'
+    .controls
+      = f.date_select :date_due
+  .control-group
+    = f.label :amount, class: 'control-label'
+    .controls
+      .input-prepend
+        span.add-on $
+        = f.text_field :amount, class: 'input-small'
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'
