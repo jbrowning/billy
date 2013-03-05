@@ -6,7 +6,7 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
-  factory :billing_period do
+  factory :billing_period_range do
     user
     begin_date 1
     end_date -1
@@ -14,7 +14,7 @@ FactoryGirl.define do
 
   factory :billing_schedule do
     user
-    billing_period
+    billing_period_range
     sequence(:name) {|n| "Bill #{n}" }
   end
 

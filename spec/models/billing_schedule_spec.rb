@@ -7,8 +7,8 @@ describe BillingSchedule do
     billing_schedule.should be_valid
   end
 
-  it 'validates the presence of billing_period' do
-    billing_schedule.billing_period = nil
+  it 'validates the presence of billing_period_range' do
+    billing_schedule.billing_period_range = nil
     billing_schedule.should_not be_valid
   end
   

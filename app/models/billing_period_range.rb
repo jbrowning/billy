@@ -1,4 +1,4 @@
-class BillingPeriod < ActiveRecord::Base
+class BillingPeriodRange < ActiveRecord::Base
   attr_accessible :begin_date, :end_date
 
   belongs_to :user
@@ -13,7 +13,7 @@ class BillingPeriod < ActiveRecord::Base
     possible_dates = (1..31).to_a
 
     # check for overlapping coverage
-    user.billing_periods.each do |period|
+    user.billing_period_ranges.each do |period|
       end_date = period.end_date == -1 ? 31 : period.end_date
       billing_range = Range.new(period.begin_date, end_date)
 

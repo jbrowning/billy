@@ -1,5 +1,6 @@
 class Bill < ActiveRecord::Base
   belongs_to :user
+  belongs_to :billing_period_range
 
   validates :name, :amount_cents, presence: true
   

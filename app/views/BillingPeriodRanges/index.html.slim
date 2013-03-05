@@ -9,7 +9,7 @@
           th End date
           th
       tbody
-        - @billing_periods.each do |bp|
+        - @billing_period_ranges.each do |bp|
           tr.billing-period data-id="#{bp.id}"
             td= bp.begin_date
             td= bp.end_date

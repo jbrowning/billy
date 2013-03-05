@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_balance
 
   def after_sign_in_path_for(resource)
-    billing_periods_path
+    bills_path
   end
 
   def get_balance

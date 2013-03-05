@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :registerable
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
-  has_many :billing_periods
+  has_many :billing_period_ranges
   has_many :bills
   monetize :balance_cents
 end

@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301033816) do
+ActiveRecord::Schema.define(:version => 20130305040107) do
 
-  create_table "billing_periods", :force => true do |t|
+  create_table "billing_period_ranges", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.integer  "begin_date", :null => false
     t.integer  "end_date",   :null => false
@@ -22,24 +22,25 @@ ActiveRecord::Schema.define(:version => 20130301033816) do
   end
 
   create_table "billing_schedules", :force => true do |t|
-    t.integer  "user_id",           :null => false
-    t.string   "name",              :null => false
-    t.integer  "billing_period_id", :null => false
+    t.integer  "user_id",                 :null => false
+    t.string   "name",                    :null => false
+    t.integer  "billing_period_range_id", :null => false
     t.integer  "amount_cents"
     t.integer  "due_day"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "bills", :force => true do |t|
-    t.integer  "user_id",                         :null => false
-    t.string   "name",                            :null => false
-    t.integer  "amount_cents", :default => 0,     :null => false
+    t.integer  "user_id",                                    :null => false
+    t.string   "name",                                       :null => false
+    t.integer  "amount_cents",            :default => 0,     :null => false
     t.date     "date_due"
     t.date     "date_paid"
-    t.boolean  "settled",      :default => false, :null => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "settled",                 :default => false, :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.integer  "billing_period_range_id"
   end
 
   create_table "users", :force => true do |t|

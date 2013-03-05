@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def redirect_user
     if current_user
-      redirect_to billing_periods_path
+      redirect_to bills_path
     end
   end
 end

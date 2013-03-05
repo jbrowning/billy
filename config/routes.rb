@@ -1,5 +1,5 @@
 Billy::Application.routes.draw do
-  resources :billing_periods
+  resources :billing_period_ranges
   resources :bills do
     member do
       put 'pay'
