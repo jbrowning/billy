@@ -13,8 +13,6 @@ module ApplicationHelper
 
     selected = options[selected_value]
 
-    logger.debug selected
-
     options_for_select options, selected
   end
 end
