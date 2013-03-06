@@ -15,4 +15,13 @@ module ApplicationHelper
 
     options_for_select options, selected
   end
+
+  def iconize(icon_name=:star, white=false)
+    classes = "icon-#{icon_name.to_s}"
+    classes += " icon-white" if white
+    content = block_given? ? " #{yield}" : ''
+
+    icon_tag = content_tag :i, nil, class: classes
+    icon_tag += content
+  end
 end
