@@ -1,3 +1,14 @@
-// Place all the styles related to the Bills controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table#billing_periods {
+  font-size: 12px;
+  td {
+    vertical-align: middle;
+    &.amount {
+      font-weight: bold;
+    }
+
+    &.name {
+      width: 160px;
+    }
+
+  }
+}
