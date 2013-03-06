@@ -2,7 +2,7 @@ class BillsController < ApplicationController
   before_filter :fetch_bill, except: [:index, :new, :create]
 
   def index
-    @bills = current_user.bills.unsettled
+    @bills = current_user.bills.unsettled.decorate
   end
 
   def new
