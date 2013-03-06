@@ -21,9 +21,9 @@
               td.date_paid  = bill.date_paid
               td.amount     = bill.amount
               td.btn-toolbar
-                = link_to "Pay!", pay_bill_path(bill), class: 'btn btn-small btn-success', method: :put
-                = link_to "Settle!", settle_bill_path(bill), class: 'btn btn-small btn-primary'
-                = link_to "Edit", edit_bill_path(bill), class: 'btn btn-small'
-                = link_to "Delete", bill_path(bill), :class => "btn btn-danger dbtn-small estroy-billing-period", method: :delete, confirm: "Are you sure you want to delete this bill?" 
+                = link_to "$", pay_bill_path(bill), class: 'btn btn-small btn-success', method: :put
+                = link_to iconize(:ok, true), settle_bill_path(bill), class: 'btn btn-small btn-primary'
+                = link_to iconize(:pencil), edit_bill_path(bill), class: 'btn btn-small'
+                = link_to iconize(:remove, true), bill_path(bill), :class => "btn btn-danger btn-small destroy-billing-period", method: :delete, confirm: "Are you sure you want to delete this bill?" 
   .span3
     = link_to "Create Bill", new_bill_path, class: "button btn btn-primary btn-large pull-right"
