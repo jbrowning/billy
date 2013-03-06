@@ -6,7 +6,7 @@
   .control-group
     = f.label :date_due, 'Due date', class: 'control-label'
     .controls
-      = f.date_select :date_due
+      = f.text_field :date_due, class: 'input-small datepicker'
   .control-group
     = f.label :amount, class: 'control-label'
     .controls
