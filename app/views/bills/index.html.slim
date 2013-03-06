@@ -1,27 +1,29 @@
 - title "Bills"
 
+- content_for :header_top, render('/layouts/balance')
+
 .row
   .span9
     - if @bills
-      table#billing_periods.table.span4
+      table#billing_periods.table.table-striped.span4
         thead
           tr
             th Name
-            th Due Date 
-            th Paid Date
+            th Due
+            th Paid
             th Amount
             th
         tbody
           - @bills.each do |bill|
-            tr.billing-period data-id="#{bill.id}"
-              td= bill.name
-              td= bill.date_due
-              td= bill.date_paid
-              td= bill.amount
+            tr.billing-period class="#{ row_style bill }" data-id="#{bill.id}"
+              td.name       = bill.name
+              td.date_due   = bill.date_due
+              td.date_paid  = bill.date_paid
+              td.amount     = bill.amount
               td.btn-toolbar
-                = link_to "Pay!", pay_bill_path(bill), class: 'btn btn-success', method: :put
-                = link_to "Settle!", settle_bill_path(bill), class: 'btn btn-primary'
-                = link_to "Edit", edit_bill_path(bill), class: 'btn'
-                = link_to "Delete", bill_path(bill), :class => "btn btn-danger destroy-billing-period", method: :delete, confirm: "Are you sure you want to delete this bill?" 
+                = link_to "Pay!", pay_bill_path(bill), class: 'btn btn-small btn-success', method: :put
+                = link_to "Settle!", settle_bill_path(bill), class: 'btn btn-small btn-primary'
+                = link_to "Edit", edit_bill_path(bill), class: 'btn btn-small'
+                = link_to "Delete", bill_path(bill), :class => "btn btn-danger dbtn-small estroy-billing-period", method: :delete, confirm: "Are you sure you want to delete this bill?" 
   .span3
     = link_to "Create Bill", new_bill_path, class: "button btn btn-primary btn-large pull-right"
