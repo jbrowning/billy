@@ -39,4 +39,32 @@ describe Bill do
       end
     end
   end
+
+  describe '#pay!' do
+    it 'updates date_paid to the current date' do
+      bill.pay!
+      
+      bill.date_paid.should eql(Date.current)
+    end
+  end
+
+  describe '#settle!' do
+    it 'pays the bill if it has not already been paid' do
+      bill.should_receive(:pay!)
+
+      bill.settle!
+
+      paid_bill = create :bill, date_paid: Date.current
+
+      paid_bill.should_not_receive(:pay!)
+
+      paid_bill.settle!
+    end
+    
+    it 'marks the bill as settled' do
+      expect {
+        bill.settle!
+      }.to change { bill.settled? }.to(true)
+    end
+  end
 end

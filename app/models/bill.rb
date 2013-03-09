@@ -18,4 +18,14 @@ class Bill < ActiveRecord::Base
   def paid?
     date_paid.present?
   end
+  
+  def pay!
+    update_attribute :date_paid, Date.current
+  end
+
+  def settle!
+    pay! unless paid?
+
+    update_attribute :settled, true
+  end
 end
