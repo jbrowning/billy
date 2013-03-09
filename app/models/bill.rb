@@ -27,5 +27,7 @@ class Bill < ActiveRecord::Base
     pay! unless paid?
 
     update_attribute :settled, true
+
+    user.update_attribute :balance, user.balance - amount
   end
 end

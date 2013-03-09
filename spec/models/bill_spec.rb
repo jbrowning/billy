@@ -66,5 +66,12 @@ describe Bill do
         bill.settle!
       }.to change { bill.settled? }.to(true)
     end
+
+    it 'subtracts the bill amount from the user account balance' do
+      user = bill.user
+      expect {
+        bill.settle!
+      }.to change { user.balance_cents }.by(-bill.amount_cents)
+    end
   end
 end
