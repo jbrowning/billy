@@ -25,7 +25,7 @@ class BillDecorator < Draper::Decorator
   end
   
   def settle_button
-    h.link_to h.iconize(:ok, true), h.settle_bill_path(source), class: 'btn btn-small btn-primary'
+    h.link_to h.iconize(:ok, true), h.settle_bill_path(source), class: 'btn btn-small btn-primary', method: :put
   end
 
   def edit_button

@@ -45,14 +45,17 @@ class BillsController < ApplicationController
   end
 
   def pay
-    @bill.update_attribute(:date_paid, Date.current)
+    @bill.pay!
 
     flash[:notice] = "'#{@bill.name}' has been paid"
     redirect_to bills_path
   end
 
   def settle
+    @bill.settle!
 
+    flash[:notice] = "'#{@bill.name}' has been settled"
+    redirect_to bills_path
   end
 
 
