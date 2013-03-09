@@ -1,4 +1,5 @@
 class BillsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :fetch_bill, except: [:index, :new, :create]
 
   def index

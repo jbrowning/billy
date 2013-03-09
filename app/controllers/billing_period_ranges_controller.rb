@@ -1,4 +1,5 @@
 class BillingPeriodRangesController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :fetch_billing_periods
 
   def index
