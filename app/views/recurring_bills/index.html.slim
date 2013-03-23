@@ -1,0 +1,24 @@
+- title "Recurring Bills"
+
+.row
+  .span9
+    - if @recurring_bills
+      table#billing_periods.table.table-striped.span4
+        thead
+          tr
+            th Name
+            th Due Day
+            th Billing Period
+            th Amount
+            th
+        tbody
+          - @recurring_bills.each do |recurring_bill|
+            tr.billing-period class="#{ row_style recurring_bill }" data-id="#{recurring_bill.id}"
+              td.name           = recurring_bill.name
+              td.date_due       = recurring_bill.date_due
+              td.billing_period = recurring_bill.billing_period_range.to_s
+              td.amount         = recurring_bill.amount
+              td.btn-toolbar
+                = recurring_bill.table_toolbar
+  .span3
+    = link_to "Create Recurring Bill", new_recurring_bill_path, class: "button btn btn-primary btn-large pull-right"      

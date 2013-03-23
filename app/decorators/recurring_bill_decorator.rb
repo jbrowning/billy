@@ -1,4 +1,4 @@
-class BillingScheduleDecorator < Draper::Decorator
+class RecurringBillDecorator < Draper::Decorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through

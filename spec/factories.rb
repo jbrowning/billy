@@ -12,7 +12,7 @@ FactoryGirl.define do
     end_date -1
   end
 
-  factory :billing_schedule do
+  factory :recurring_bill do
     user
     billing_period_range
     sequence(:name) {|n| "Bill #{n}" }
