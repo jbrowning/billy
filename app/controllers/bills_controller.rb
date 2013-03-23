@@ -29,19 +29,19 @@ class BillsController < ApplicationController
       flash[:notice] = "bill updated"
       redirect_to bills_path
     else
-      flash[:error] = "there was an error updating the bill"
+      flash[:error] = "There was an error updating the bill"
       render :edit
     end
   end
 
   def destroy
     if @bill.destroy
-      flash[:notice] = "bill deleted"
+      flash[:notice] = "Bill deleted"
     else
-      flash[:error] = "there was a problem deleting the bill"
+      flash[:error] = "There was a problem deleting the bill"
     end
 
-    redirect_to index
+    redirect_to bills_path
   end
 
   def pay
