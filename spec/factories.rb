@@ -6,6 +6,12 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
+  factory :billing_period do
+    user
+    begin_date { Date.current - 1.week }
+    end_date   { Date.current + 1.week }
+  end
+
   factory :billing_period_range do
     user
     begin_date 1
