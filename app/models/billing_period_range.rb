@@ -2,7 +2,7 @@ class BillingPeriodRange < ActiveRecord::Base
   attr_accessible :begin_date, :end_date
 
   belongs_to :user
-  has_many :bills
+  has_many :recurring_bills
 
   validates :user, :begin_date, :end_date, presence: true
   validate :sane_date_range

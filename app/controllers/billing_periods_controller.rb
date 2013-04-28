@@ -1,0 +1,2 @@
+class BillingPeriodsController < ApplicationController
+end
